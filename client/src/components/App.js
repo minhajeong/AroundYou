@@ -6,20 +6,33 @@ import VideoPlayer from './VideoPlayer';
 import Footer from './Footer';
 import '!style!css!./../styles/style.css';
 import MapDATA from './../../data/MapDATA';
+import VideoData from './../../data/VideoData';
+
+console.log(window.videoData[0].title)
 
 class App extends React.Component{
   
   constructor(props){
     super(props);
-    // this.state = {
-    //   mapData : [
-    //     {location : '위치1', address : '주소1'},
-    //     {location : '위치2', address : '주소2'},
-    //     {location : '위치3', address : '주소3'},
-    //     {location : '위치4', address : '주소4'},
-    //     {location : '위치5', address : '주소5'}
-    //   ]
-    // };
+     this.state = ({
+      'mapData': mapData,
+      'currentVideo': videoData[0]
+
+    });
+     console.log(this.state)
+     console.log(this.state.currentVideo);
+     this.onClick = this.onClick.bind(this);
+      
+  };
+
+  onClick(e) {
+    
+
+   const newState = {
+      currentVideo: e
+    };
+
+    this.setState(newState);
   };
 
   render(){
@@ -43,14 +56,14 @@ class App extends React.Component{
           <div id="information">
             <div id="outer">
               <div id="inner">
-                  <VideoInformation />
+                  <VideoInformation videoInfo={this.state.currentVideo.title}/>
               </div>
             </div>
           </div>
           <div id="player">
             <div id="outer">
               <div id="inner">
-                <VideoPlayer />
+                <VideoPlayer videoPlay={this.state.currentVideo.videoId}/>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-window.VideoData = [
+window.videoData = [
 {
  "title": "타짜",
  "videoId": "YOpebRWJpl8" 

@@ -1,11 +1,20 @@
 import React from 'react';
 
 class VideoPlayer extends React.Component{
+	constructor(props){
+		super(props)
+		// this.props.onClick(videoId)
+	}
   render(){
     return (
-      <div>
-        <h1>Video Player</h1>
-      </div>
+      <div className="video-player">
+		    <div className="embed-responsive embed-responsive-16by9">
+		      <iframe className="embed-responsive-item" width={400} height={225} src={"https://www.youtube.com/embed/" + this.props.videoPlay}></iframe>
+		    </div>
+		    
+		  </div>
+      
+    
     )
   };
 };
